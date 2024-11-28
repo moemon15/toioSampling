@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toioセンサーサンプリング周期測定</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <h1>toioセンサーサンプリング周期測定</h1>
+
+    <div class="settings-container">
+        <div class="settings-title">測定設定</div>
+        <div class="settings-row">
+            <label for="duration">測定時間:</label>
+            <input type="number" id="duration" class="duration-input" value="5000" min="1000" step="1000">
+            <span>ミリ秒</span>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button id="connectButton" class="button connect">toioに接続</button>
+        <button id="measureButton" class="button" disabled>サンプリングレートを測定</button>
+        <button id="exportButton" class="button" disabled>CSV出力</button>
+    </div>
+
+    <div id="status"></div>
+
+    <div id="result">
+        <table id="resultTable">
+            <thead>
+                <tr>
+                    <th>測定回数</th>
+                    <th>サンプル数</th>
+                    <th>測定時間(ms)</th>
+                    <th>サンプリング周期(ms)</th>
+                    <th>サンプリングレート(Hz)</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <div class="stats-container">
+            <div class="stats-card">
+                <div class="stats-title">平均サンプリングレート</div>
+                <div class="stats-value" id="avgRate">-</div>
+            </div>
+            <div class="stats-card">
+                <div class="stats-title">標準偏差</div>
+                <div class="stats-value" id="stdDev">-</div>
+            </div>
+            <div class="stats-card">
+                <div class="stats-title">測定回数</div>
+                <div class="stats-value" id="measureCount">0</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
